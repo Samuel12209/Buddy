@@ -47,7 +47,6 @@ while running:
             Slime = pygame.transform.scale(Slime, (50, 40))
             screen.fill(BLACK)
             screen.blit(Slime, (slimex, slimey))
-            #screen.blit()
             pygame.display.update()
             print("slime normal")
             Slime = pygame.image.load(slime_neutral).convert_alpha()
