@@ -4,5 +4,5 @@ A virtual pet named Buddy who you can feed, and play with your adorable digital 
  To make things easy just download the release and run the buddy file
 
 ## Next update
-- Adding more detail to petting buddy
+- Making a need for buddy to be fed
 - Stats coming soon
