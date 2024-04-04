@@ -13,22 +13,23 @@ loop = 0
 pygame.display.set_caption("Buddy")
 clock = pygame.time.Clock()
 slimex, slimey = 27, 35
-Slime = pygame.image.load("slime.png").convert_alpha()
+Slime = pygame.image.load("assets\slime.png").convert_alpha()
 pygame.display.set_icon(Slime)
 screen.fill(BLACK)
 action = False
 print("slime smile")
-Slime = pygame.image.load("slime.png").convert_alpha()
+Slime = pygame.image.load("assets\slime.png").convert_alpha()
 Slime = pygame.transform.scale(Slime, (50, 40))
 screen.fill(BLACK)
 screen.blit(Slime, (slimex, slimey))
 pygame.display.update()
 
-heart = "heart.png"
-slime_smile = "slime_smile.png"
-slime_eating = "slime_eat1.png"
-slime_neutral = "slime.png"
-slime_mouth_closed = "slime_eat2.png"
+PLACEHOLDER = "assets\slime.png"
+heart = "assets\heart.png"
+slime_smile = "assets\slime_smile.png"
+slime_eating = "assets\slime_eat1.png"
+slime_neutral = "assets\slime.png"
+slime_mouth_closed = "assets\slime_eat2.png"
 
 running = True
 while running:
@@ -46,6 +47,7 @@ while running:
             Slime = pygame.transform.scale(Slime, (50, 40))
             screen.fill(BLACK)
             screen.blit(Slime, (slimex, slimey))
+            #screen.blit()
             pygame.display.update()
             print("slime normal")
             Slime = pygame.image.load(slime_neutral).convert_alpha()
@@ -74,6 +76,7 @@ while running:
             Slime = pygame.transform.scale(Slime, (50, 40))
             screen.blit(Slime, (slimex, slimey))
             pygame.display.update()
+
 
 pygame.display.update()
 pygame.time.delay(10)
