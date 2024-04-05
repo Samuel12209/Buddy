@@ -108,7 +108,7 @@ while running:
                 if food_level < food_amount_max:
                     food_level += 10
         
-    food_level -= 0.01
+    food_level -= 0.001
     print(food_level)
 
 pygame.display.update()
