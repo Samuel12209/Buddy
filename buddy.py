@@ -114,6 +114,7 @@ while running:
     food_level -= 0.001
     print(food_level)
 
+
 pygame.display.update()
 pygame.time.delay(10)
 pygame.display.flip()
