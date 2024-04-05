@@ -107,7 +107,9 @@ while running:
                 pygame.display.update()
                 if food_level < food_amount_max:
                     food_level += 10
-        
+        if food_level == 0.0:
+            print("Slime is hungry!")
+            break
     food_level -= 0.001
     print(food_level)
 
