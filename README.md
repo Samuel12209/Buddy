@@ -5,5 +5,5 @@ A virtual pet named Buddy who you can feed, and play with your adorable digital 
  in your coding enviornment like vs code or pycharm
 
 ## Next update
-- Making a need for buddy to be fed
+- Food counter
 - Stats coming soon
