@@ -9,6 +9,7 @@ rpc = Presence("1225535870199795782")
 rpc.connect()
 rpc.update(state="Playing with buddy",details = "Having fun", large_image="slime_smile2")
 
+Affection = 50
 food_amount_max = 100
 pygame.init()
 window_width = 100
@@ -30,7 +31,7 @@ Slime = pygame.transform.scale(Slime, (50, 40))
 screen.blit(Slime, (slimex, slimey))
 pygame.display.update()
 
-food_level = 100
+food_level = 10
 PLACEHOLDER = "slime.png"
 heart = "heart.png"
 slime_smile = "slime_smile.png"
@@ -39,6 +40,9 @@ slime_eating = "slime_eat1.png"
 slime_neutral = "slime.png"
 slime_mouth_closed = "slime_eat2.png"
 full_icon = "FULLicon.png"
+slime_smile2_gold = "Slime_Smile2_Gold.png"
+red_box = "redbox.png"
+blank = "blank.png"
 
 hwnd = pygame.display.get_wm_info()["window"]
 win32gui.SetWindowPos(hwnd, win32con.HWND_TOPMOST, 0, 0, 0, 0, win32con.SWP_NOMOVE | win32con.SWP_NOSIZE)
@@ -75,7 +79,25 @@ while running:
             screen.blit(Slime, (slimex, slimey))
             pygame.display.update()
             action = False
+            Affection += 10
+            print("Affection increased by 10")
+    
+    if Affection >= 100:
+        print("Slime is very happy!")
+        slime_neutral = "slime_smile2.png"
+        pygame.display.update()
+    else:
+        slime_neutral = "slime.png"
+        pygame.display.update()
 
+    if Affection < 100:
+        Slime = pygame.image.load(slime_neutral).convert_alpha()
+        Slime = pygame.transform.scale(Slime, (50, 40))
+        screen.blit(backround_image, (-5, -20))
+        screen.blit(Slime, (slimex, slimey))
+        pygame.display.update()
+    
+    
     if event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
         action = True
         if 27 < mouse_pos[0] < 77 and 35 < mouse_pos[1] < 75:
@@ -107,14 +129,30 @@ while running:
                 pygame.display.update()
                 if food_level < food_amount_max:
                     food_level += 10
+
     if food_level < 0:
         print("Slime is hungry!")
         break
-    
+        
+    if Affection < 0:
+        print("Slime is sad")
+        break
+
+    if food_level < 20:
+        print("Slime getting hungry!")
+        low_FA = pygame.image.load(red_box).convert_alpha()
+        screen.blit(low_FA, (slimex - 27, slimey - 35))
+
+        
+    if Affection < 20:
+        print("Slime is getting sad...")
+        low_FA = pygame.image.load(red_box).convert_alpha()
+        screen.blit(low_FA, (slimex - 27, slimey - 35))
+
     food_level -= 0.001
     print(food_level)
+    Affection -= 0.001
+    print(Affection)
 
-
-pygame.display.update()
+    pygame.display.flip()
 pygame.time.delay(10)
-pygame.display.flip()
